@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/index'=>'users#index'
   get 'tasks/_logged_in'
   root "home#top"
   get "posts/index" => "posts#index"
