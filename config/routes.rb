@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'tasks/_logged_in'
   root "home#top"
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
@@ -8,7 +9,11 @@ Rails.application.routes.draw do
   post "posts/:id/update" => "posts#update"
   # destroyアクションへのルーティングを追加してください
   post "posts/:id/destroy" => "posts#destroy"
-  
+  get "import" => "posts#_logged_in"
+  resources :posts
   get "/" => "home#top"
   get "about" => "home#about"
+  resources :posts do
+    collection {post :import} 
+  end
 end

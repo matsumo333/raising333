@@ -1,0 +1,9 @@
+<div class="main posts-new">
+  <div class="container">
+
+<%= form_tag import_posts_path, multipart: true do %>
+<%= file_field_tag :file %> 
+<%= submit_tag "インポート" %>
+<% end %>
+</div>
+</div>

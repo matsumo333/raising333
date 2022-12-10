@@ -1,0 +1,6 @@
+<h1>Tasks#_logged_in</h1>
+<p>Find me in app/views/tasks/_logged_in.html.erb</p>
+<%= form_tag import_tasks_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "インポート" %>
+<% end %>

@@ -34,5 +34,8 @@ class PostsController < ApplicationController
     
     redirect_to("/posts/index")
   end
-  
+  def import 
+    Post.import(params[:file]) 
+    redirect_to posts_path
+    end
 end
