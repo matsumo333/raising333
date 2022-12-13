@@ -28,7 +28,6 @@ class PostsController < ApplicationController
   end
   
   def destroy
-    # destroyアクションの中身を作成してください
     @post = Post.find_by(id: params[:id])
     @post.destroy
     
