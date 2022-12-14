@@ -1,6 +1,10 @@
 <div class="main posts-show">
   <div class="container">
     <div class="posts-show-item">
+      <div class="post-user-name">
+        <img src="<%= "/user_images/#{@user.image_name}" %>">
+        <%= link_to(@user.name, "/users/#{@user.id}") %>
+      </div>
       <p>
         <%= @post.content %>
       </p>
@@ -8,9 +12,10 @@
         <%= @post.created_at %>
       </div>
       <div class="post-menus">
-        <%= button_to "編集", "/posts/#{@post.id}/edit",{method:"get"} %>
-        <!-- destroyアクションへのリンクを作成してください -->
-        <%= button_to "削除", "/posts/#{@post.id}/destroy", {method: "post"} %>
+        <%#= link_to("編集", "/posts/#{@post.id}/edit") %>
+        <%=button_to "編集", "/posts/#{@post.id}/edit",{method:"get"} %>
+        <%=button_to "削除", "/posts/#{@post.id}", method: :delete %>
+        <%#= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
       </div>
     </div>
   </div>
