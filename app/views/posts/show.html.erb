@@ -10,13 +10,29 @@
       </p>
       <div class="post-time">
         <%= @post.created_at %>
-      </div>
+        </div>
+       <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+       <span style="color: #d32f2f"><span class="fa fa-heart like-btn"></span></span> 
+       <%#= link_to "💗", "/likes/#{@post.id}", method: :delete %>
+       <%= button_to "","/likes/#{@post.id}", :method => :delete %>
+       <%#= button_to "/likes/#{@post.id}", :class => 'ui button', :method => :get do %>
+       <%#= button_to new_user_registration_path, :class => 'ui button', :method => :get do %>
+       
+      <% else %>
+       <%= link_to("/likes/#{@post.id}/create", {method: :post}) do %>
+       <span style="color: #bbccbb"><span class="fa fa-heart like-btn"></span></span>
+       
+       <% end %>
+      
+       <% end %>
+      <% if @post.user_id == @current_user.id %>
       <div class="post-menus">
         <%#= link_to("編集", "/posts/#{@post.id}/edit") %>
         <%=button_to "編集", "/posts/#{@post.id}/edit",{method:"get"} %>
         <%=button_to "削除", "/posts/#{@post.id}", method: :delete %>
-        <%#= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+        
       </div>
+      <% end %>
     </div>
   </div>
 </div>

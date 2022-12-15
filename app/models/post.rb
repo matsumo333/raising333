@@ -11,7 +11,6 @@ class Post < ApplicationRecord
   ["content"]
  end
   validates :content, {presence: true, length: {maximum: 140}}
-  # user_idカラムにバリデーションを追加してください
   validates :user_id, {presence: true}
 
   def user

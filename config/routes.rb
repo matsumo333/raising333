@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+   
+  get "likes/:post_id/create" => "likes#create"
+  get "likes/:post_id" => "likes#destroy"
+  post "likes/:post_id" => "likes#destroy"
+  delete 'likes/:post_id' => 'likes#destroy'
   get "login" => "users#login_form"
   post "login" => "users#login"
   get "logout" => "users#logout"
@@ -16,7 +21,6 @@ Rails.application.routes.draw do
   post "posts/create" => "posts#create"
   get "posts/:id/edit" => "posts#edit"
   post "posts/:id/update" => "posts#update"
-  # destroyアクションへのルーティングを追加してください
   post "posts/:id/destroy" => "posts#destroy"
   get "import" => "posts#_logged_in"
   resources :posts
