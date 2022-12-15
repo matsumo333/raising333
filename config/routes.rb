@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-   
+  root "home#top" 
   get "likes/:post_id/create" => "likes#create"
   get "likes/:post_id" => "likes#destroy"
   post "likes/:post_id" => "likes#destroy"
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'users/index'=>'users#index'
   get "users/:id" => "users#show"
   get 'tasks/_logged_in'
-  root "home#top"
+  
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
   get "posts/:id" => "posts#show"
